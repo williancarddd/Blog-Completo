@@ -1,0 +1,4 @@
+PORT= <port listenning server>
+DATABASE= <>
+PASSWORD= <password db>
+USER= <user db>
