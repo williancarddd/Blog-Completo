@@ -18,6 +18,5 @@ authenticate()
 .catch(()=>{
   console.log('🤷‍♂️ error to connect database ')
 })
-import '../routes/Admin/Categories/Categorie';
-import '../routes/Admin/Articles/Article';
+
 export {connection}
