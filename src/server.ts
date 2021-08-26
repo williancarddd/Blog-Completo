@@ -4,7 +4,7 @@ import { morgan_configured } from './routes/middlewares/morgan.routes'
 import { routers } from './routes/index.routes'
 import  './database/database'
 import  './routes/Admin/Articles/Article'
-import './routes/Admin/Categories/Categorie'
+import  './routes/Admin/Categories/Categorie'
 const app = express()
 
 app.set("view engine", 'ejs')

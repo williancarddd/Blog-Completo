@@ -5,7 +5,35 @@
 
   <%- include('../../partials/navbar_admin.ejs') %> 
   <main>
-    garau
+    <hr>
+    <section class='container m-auto'>
+      <a href="/admin/categories/new"><button class='btn btn-secondary m-3'>Create new categorie</button></a>
+      <table class="table">
+        <thead class=' bg-secondary text-white'>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Title</th>
+            <th scope="col">Slug</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% data_categorie.forEach(categorie => { %>
+          <tr>
+            <th scope="row"><%- categorie.id %> </th>
+            <td><%- categorie.title %> </td>
+            <td><%- categorie.slug %> </td>
+            <td>
+              <a href="/admin/categories/edit/<%-categorie.id%>" class="btn btn-warning " style='display: inline;'>Edit</a>
+              <form action="/admin/categories/delete/<%- categorie.id %> " style='display: inline;' method="POST" onsubmit="confirm_delete(event, this)">
+                <button type="submit" class='btn btn-danger' >Delete</button>
+              </form>
+            </td>
+          </tr>
+          
+         <% }) %>
+        </tbody>
+    </section>
   </main>
   <%- include('../../partials/footer_scripts.ejs') %>
 

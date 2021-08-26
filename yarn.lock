@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@directus/format-title@^9.0.0-rc.91":
+  version "9.0.0-rc.91"
+  resolved "https://registry.yarnpkg.com/@directus/format-title/-/format-title-9.0.0-rc.91.tgz#b2f06c2a539092f4fad94596cfc8ba81bac54ad1"
+  integrity sha512-N21g8rXCWEyoh1OX4HN4ImHt35/1q43VYFfRuoZGf2B2eaqk/9cIwwxYDJgFRf1DRL2IjqfCe4MumVNwNDMoKQ==
+
 "@types/body-parser@*":
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/@types/body-parser/-/body-parser-1.19.1.tgz#0c0174c42a7d017b818303d4b5d969cb0b75929c"
