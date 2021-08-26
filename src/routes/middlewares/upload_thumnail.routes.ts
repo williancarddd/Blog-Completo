@@ -7,8 +7,8 @@ export const multer_define = multer({
       cb(null, './public/thumbnails' )
     },
     filename: (req, file, cb) => {
-      const code_for_uniq_img = uuid() +'---'+new Date().toLocaleDateString().replace(/[/]/g, '-') + req.body.title_categorie
-      const new_name = code_for_uniq_img + '-' +file.originalname.split(' ').join('_')
+      const code_for_uniq_img = uuid() +'---'+new Date().toLocaleDateString().replace(/[/]/g, '-')+'---' + req.body.title_article
+      const new_name = code_for_uniq_img + '-' + file.originalname.split(' ').join('_')
       cb(null, new_name)
     }
   }),
