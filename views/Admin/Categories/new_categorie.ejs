@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+ <%- include('../../partials/head.ejs') %> 
+<html lang="en">
+  <body>
+
+  <%- include('../../partials/navbar_admin.ejs') %> 
+  <hr>
+  <main>
+    <section class="container m-auto">
+      <form action="/admin/categories/new"  method="POST" class="form-control">
+        <h5 class='card-title m-2'> Create new categorie </h5>
+        <div >
+          <input required autocomplete="off" autocapitalize="on" class="form-control m-2" type="text" name="categorie_title" id="categorie_title_id">
+          <button type='submit' class='btn m-2 btn-success'>CREATE</button>
+        </div>
+      </form>
+    </section>
+  </main>
+  <%- include('../../partials/footer_scripts.ejs') %>
+
+</body>
+</html>

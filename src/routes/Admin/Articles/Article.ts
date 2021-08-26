@@ -21,8 +21,8 @@ const Article = connection.define('articles', {
   }
 })
 
-Article.belongsTo(Categorie)
 Categorie.hasMany(Article)
+Article.belongsTo(Categorie)
 
 Article.sync({force: false})
 
