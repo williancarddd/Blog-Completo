@@ -13,9 +13,9 @@
           Categories
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <% data_categorie.forEach(categorie => { %>
+            <a class="dropdown-item" href="/categories/<%- categorie.slug %> "><%- categorie.title %></a> 
+          <% }) %>
         </div>
       </li>
     </ul>
