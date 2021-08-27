@@ -2,6 +2,7 @@ import express , {Request, Response} from 'express'
 import { multer_define } from '../../middlewares/upload_thumnail.routes'
 import { select_all_categorie } from '../Categories/select_all_categories'
 import { create_new_article } from './create_new_article'
+import { delete_one_article } from './delete_one_article'
 import { select_all_articles } from './select_all_article'
 const router_articles = express.Router()
 
@@ -13,7 +14,7 @@ interface IData {
 
 router_articles.get('/', async (req:Request, res:Response) => {
   const data: IData = {
-    title_page: 'BlogTecnor- List All Article'
+    title_page: 'BlogTecnor - List All Article'
   }
   const result_search =  await select_all_articles()
   if(!result_search.error){
@@ -26,7 +27,7 @@ router_articles.get('/', async (req:Request, res:Response) => {
 
 router_articles.get('/new', async (req: Request, res:Response) => {
   const data:IData = {
-    title_page: 'Creating new article'
+    title_page: 'BlogTecnor - Creating new article'
   }
   data.all_categories = await (await select_all_categorie()).result_data
   return res.render('Admin/Articles/new_article', data)
@@ -44,12 +45,19 @@ router_articles.post('/new', multer_define.single('thumbnail_article'), async (r
         select_categorie,
         name_file || 'error',
     )
-    console.log(result_create)
     if(!result_create.error){
       return res.redirect('/admin/articles')
-    } else {
-      return res.redirect('/')
     }
+  }
+  return res.redirect('/')
+})
+
+
+router_articles.post('/delete/:id', async (req:Request, res:Response) => {
+  const id = Number.parseInt(req.params.id)
+  const result_delete = await delete_one_article(id)
+  if(!result_delete.error) {
+    return res.redirect('/admin/articles')
   }
   return res.redirect('/')
 })
