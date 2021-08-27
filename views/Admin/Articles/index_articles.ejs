@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+ <%- include('../../partials/head.ejs') %> 
+<html lang="en">
+  <body>
+
+  <%- include('../../partials/navbar_admin.ejs') %> 
+  <main>
+    <hr>
+    <section class='container m-auto'>
+      <a href="/admin/articles/new"><button class='btn btn-secondary m-3'>Create new article</button></a>
+        <table class="table">
+          <thead class=' bg-secondary text-white'>
+            <tr>
+              <th scope="col" >ID</th>
+              <th scope="col" class='text-lg-center'>Title</th>
+              <th scope="col" class='text-lg-center'>Slug</th>
+              
+              <th scope="col" class='text-lg-center'>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+           <% data_article.forEach(article => { %>
+            
+            <tr>
+              <th scope="row"><%- article.id%></th>
+              <td class='text-lg-center'><%- article.title %> </td>
+              <td class='text-lg-center'><%- article.slug %>  </td>
+              <td class='text-lg-center'> 
+                <a href="" class="btn btn-warning " style='display: inline;'>Edit</a>
+                <form action="" style='display: inline;' method="POST" onsubmit="confirm_delete(event, this)">
+                  <button type="submit" class='btn btn-danger' >Delete</button>
+              </form>
+            </td>
+            </tr>
+           <% }) %>
+            
+          </tbody>
+    </section>
+  </main>
+  <%- include('../../partials/footer_scripts.ejs') %>
+</body>
+</html>

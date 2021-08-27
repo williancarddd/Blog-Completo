@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+ <%- include('../../partials/head.ejs') %> 
+<html lang="en">
+  <body>
+
+  <%- include('../../partials/navbar_admin.ejs') %> 
+  <main>
+    <hr>
+    <section class='container m-auto '>
+      <div class="card">
+        <form action="/admin/articles/new" method="POST" class='form-control' enctype="multipart/form-data">
+          <div>
+            <input required type="text" name="title_article" class='form-control p-2 m-2' placeholder="type title of the article. . .">
+            <textarea  class='form-control' name="body_article"  id='body_article_id' cols="30" rows="15" placeholder="write your thinking. . . "></textarea>
+          </div>
+
+          <div>
+            <label class='form-label mt-lg-3'>Select the categorie </label>
+            <select  required name="select_categorie" id="select_categorie_id"  class="form-select " aria-label="Default select example"style="display: block;">
+              <% all_categories.forEach(categorie => { %>
+                <option value="<%- categorie.id %> "><%- categorie.title %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div>
+            <label class='form-label mt-lg-3'>Select thumbnail </label>
+            <input required class="form-control form-control "  type="file" name='thumbnail_article'>
+          </div>
+          <div>
+          </div>
+          <button type='submit' class='btn btn-success m-3'>Send Article</button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <%- include('../../partials/footer_scripts.ejs') %>
+  <script src='/public/tinymce/js/tinymce/tinymce.min.js'></script>
+  <script>
+    tinymce.init({
+      selector: '#body_article_id',
+      plugins: 'advlist anchor autolink  autosave  charmap code  emoticons  fullpage  fullscreen  image  imagetools  insertdatetime lists paste wordcount'
+    })
+  </script>
+</body>
+</html>
