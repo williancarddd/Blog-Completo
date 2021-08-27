@@ -14,7 +14,7 @@
               <th scope="col" >ID</th>
               <th scope="col" class='text-lg-center'>Title</th>
               <th scope="col" class='text-lg-center'>Slug</th>
-              
+              <th scope="col" class='text-lg-center'>Category</th>
               <th scope="col" class='text-lg-center'>Actions</th>
             </tr>
           </thead>
@@ -25,9 +25,10 @@
               <th scope="row"><%- article.id%></th>
               <td class='text-lg-center'><%- article.title %> </td>
               <td class='text-lg-center'><%- article.slug %>  </td>
+              <td class='text-lg-center'><%-article.category === null ?  'category deleted' : article.category.title %>  </td>
               <td class='text-lg-center'> 
                 <a href="" class="btn btn-warning " style='display: inline;'>Edit</a>
-                <form action="" style='display: inline;' method="POST" onsubmit="confirm_delete(event, this)">
+                <form action="/admin/articles/delete/<%-article.id %> " style='display: inline;' method="POST" onsubmit="confirm_delete(event, this)">
                   <button type="submit" class='btn btn-danger' >Delete</button>
               </form>
             </td>
