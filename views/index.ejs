@@ -1,8 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('/partials/head.ejs') %>
+<%- include('./partials/head.ejs') %>
 <body>
-  
-  <%- include('/partials/footer_scripts.ejs') %>
+  <%- include('./partials/navbar_user.ejs') %>
+  <hr>
+  <header >
+    <div class="bg-dark text-light p-5  rounded-lg m-3">
+      <h1 class="display-4">Welcome to BlogTecnor</h1>
+      <p class="lead">The bester content of tecnology and from the geek world it is here.</p>
+      <hr class="my-4">
+      <p>Our blog offers different content for your learning and entertainment. In addition, we are recruiting volunteer content creators to help our community and website grow.</p>
+    </div>
+  </header>
+  <main class='container '>
+    <div class='row m-auto'>
+      <% data_article.forEach(article=> { %>
+        <div class="col-md-3" style='margin-top: 3rem;'>
+          <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%-article.thumbnail_url%>" alt="Card image cap">
+            <div class="card-body p-2 ">
+              <h5 class="card-title text pt-2 p-2 text-lg-center text" style="font-size: 1.1rem; text-align: center;" ><%- article.title %></h5>
+              <a href="/read/<%-article.slug%>" class="btn btn-info form-control">Read</a>
+            </div>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </main>
+  <%- include('./partials/footer_scripts.ejs') %>
 </body>
 </html>

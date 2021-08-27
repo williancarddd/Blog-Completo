@@ -27,7 +27,7 @@
               <td class='text-lg-center'><%- article.slug %>  </td>
               <td class='text-lg-center'><%-article.category === null ?  'category deleted' : article.category.title %>  </td>
               <td class='text-lg-center'> 
-                <a href="" class="btn btn-warning " style='display: inline;'>Edit</a>
+                <a href="/admin/articles/update/<%-article.id %> " class="btn btn-warning " style='display: inline;'>Edit</a>
                 <form action="/admin/articles/delete/<%-article.id %> " style='display: inline;' method="POST" onsubmit="confirm_delete(event, this)">
                   <button type="submit" class='btn btn-danger' >Delete</button>
               </form>

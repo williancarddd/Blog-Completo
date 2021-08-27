@@ -4,6 +4,8 @@ import { select_all_categorie } from '../Categories/select_all_categories'
 import { create_new_article } from './create_new_article'
 import { delete_one_article } from './delete_one_article'
 import { select_all_articles } from './select_all_article'
+import { select_one_article } from './select_one_article'
+import { update_one_article } from './update_one_article'
 const router_articles = express.Router()
 
 interface IData {
@@ -62,4 +64,29 @@ router_articles.post('/delete/:id', async (req:Request, res:Response) => {
   return res.redirect('/')
 })
 
+router_articles.get('/update/:id' , async (req: Request, res:Response) => {
+  const id = Number.parseInt(req.params.id)
+  const data: IData= {
+    title_page: 'BlogTecnor-Update article',
+  }
+  const result_article = await select_one_article({id: id})
+  if (!result_article.error) {
+    data.data_article =  result_article.data_one_article || {}
+    res.render('Admin/Articles/edit_article', data)
+  } else {
+    res.redirect('/')
+  }
+})
+
+router_articles.post('/update/:id', async (req: Request, res:Response) => {
+  const id = Number.parseInt(req.params.id)
+  const title_article = req.body.title_article
+  const body_article = req.body.body_article
+  const result_update = await update_one_article(title_article, body_article, id)
+  if(!result_update.error){
+    return res.redirect('/admin/articles')
+  } else {
+    return res.redirect('/')
+  }
+})
 export {router_articles}
