@@ -22,7 +22,7 @@ router_root.get('/', async (req:Request, res:Response) => {
 
 router_root.get('/read/:slug', async  (req:Request, res:Response) => {
   const {slug}  = req.params
-  const result_article = await select_one_article(slug)
+  const result_article = await select_one_article({slug:slug})
   const result_categorie = await select_all_categorie()
   
   if(!result_article.error){
