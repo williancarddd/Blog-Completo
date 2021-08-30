@@ -18,6 +18,10 @@ const Article = connection.define('articles', {
   thumbnail_url: {
     type: sequelize.TEXT,
     allowNull: false
+  },
+  name_thumbnail: {
+    type: sequelize.TEXT,
+    allowNull: false
   }
 })
 

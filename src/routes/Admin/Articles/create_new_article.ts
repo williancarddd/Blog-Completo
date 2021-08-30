@@ -14,7 +14,8 @@ export async function create_new_article(title_article: string, body_article:str
       slug: slugify(title_article, '_'),
       body_article: body_article,
       categoryId: categorie_id,
-      thumbnail_url: `http://localhost:${process.env.PORT}/public/thumbnails/${name_file}`
+      thumbnail_url: `http://localhost:${process.env.PORT}/public/thumbnails/${name_file}`,
+      name_thumbnail: name_file
     })
     return {error: false}
   }catch(err) {

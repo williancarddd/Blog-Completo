@@ -17,7 +17,7 @@
       <% data_article.forEach(article=> { %>
         <div class="col-md-3" style='margin-top: 3rem;'>
           <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="<%-article.thumbnail_url%>" alt="Card image cap">
+            <img class="card-img-top" src="<%-article.thumbnail_url%>" alt="Card image cap" >
             <div class="card-body p-2 ">
               <h5 class="card-title text pt-2 p-2 text-lg-center text" style="font-size: 1.1rem; text-align: center;" ><%- article.title %></h5>
               <a href="/read/<%-article.slug%>" class="btn btn-info form-control">Read</a>
@@ -25,6 +25,11 @@
           </div>
         </div>
       <% }) %>
+      <div>
+        <a href="/articles/page/1" class='link-info'>
+          <p class="m-2 text-lg-end fs-4">Next >></p>
+        </a>
+      </div>
     </div>
   </main>
   <%- include('./partials/footer_scripts.ejs') %>
