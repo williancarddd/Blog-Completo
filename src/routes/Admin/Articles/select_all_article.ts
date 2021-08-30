@@ -7,12 +7,13 @@ interface ISelectAllArticles {
   data_article?: object
 }
 
-export async function select_all_articles(attr?:Array<string>): Promise<ISelectAllArticles> {
+export async function select_all_articles(attr?:Array<string>, lim?:number): Promise<ISelectAllArticles> {
   try {
     const result_search  = await Article.findAll({
       include:{model: Categorie},
       attributes: attr || undefined,
-      order: [['id', 'desc']]
+      order: [['id', 'desc']],
+      limit: lim || undefined
     })
     console.log(attr)
     return {error: false, data_article: result_search}

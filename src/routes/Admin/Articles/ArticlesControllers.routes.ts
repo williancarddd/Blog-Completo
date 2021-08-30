@@ -40,16 +40,16 @@ router_articles.post('/new', multer_define.single('thumbnail_article'), async (r
   const select_categorie = Number.parseInt(req.body.select_categorie)
   const body_article = req.body.body_article
   const name_file = req.file?.filename
-  if(req.file){
-    const result_create = await create_new_article(
-        title_article,
-        body_article,
-        select_categorie,
-        name_file || 'error',
+  
+  const result_create = await create_new_article(
+    title_article,
+    body_article,
+    select_categorie,
+    req.file ? (name_file || 'notName') : 'standart.png',
     )
+    console.log(req.file)
     if(!result_create.error){
-      return res.redirect('/admin/articles')
-    }
+    return res.redirect('/admin/articles')
   }
   return res.redirect('/')
 })
@@ -89,4 +89,6 @@ router_articles.post('/update/:id', async (req: Request, res:Response) => {
     return res.redirect('/')
   }
 })
+
+
 export {router_articles}

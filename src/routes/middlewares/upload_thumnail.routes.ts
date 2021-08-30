@@ -1,7 +1,7 @@
 import multer from "multer";
 import { uuid } from "uuidv4";
 
-export const multer_define = multer({
+export const multer_define:multer.Multer = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, './public/thumbnails' )
