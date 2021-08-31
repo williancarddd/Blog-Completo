@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+ <%- include('../../partials/head.ejs') %> 
+<html lang="en">
+  <body>
+
+  <%- include('../../partials/navbar_admin.ejs') %> 
+  <main>
+    <hr>
+    <section class='container m-auto'>
+      <a href="/admin/users/create"><button class='btn btn-secondary m-3'>Create new admin user</button></a>
+      <table class="table">
+        <thead class=' bg-secondary text-white'>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Email</th>
+          </tr>
+        </thead>
+        <tbody>
+         <% data_users.forEach(user => { %>
+          <tr>
+            <th scope="row"><%- user.id %> </th>
+            <td><%- user.email %> </td>
+          </tr>
+         <% }) %>
+        </tbody>
+    </section>
+  </main>
+  <%- include('../../partials/footer_scripts.ejs') %>
+</body>
+</html>
