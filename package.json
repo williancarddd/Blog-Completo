@@ -10,6 +10,7 @@
     "test": "npx tsnd --transpile-only --respawn --ignore-watch node_modules src/test.ts"
   },
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
     "@types/express": "^4.17.13",
     "@types/morgan": "^1.9.3",
     "@types/multer": "^1.4.7",
@@ -20,11 +21,14 @@
   },
   "dependencies": {
     "@directus/format-title": "^9.0.0-rc.91",
+    "@types/express-session": "^1.17.4",
     "@types/luxon": "^2.0.0",
     "@types/node": "^16.7.1",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^10.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
     "luxon": "^2.0.2",
     "multer": "^1.4.3",
     "mysql2": "^2.3.0",

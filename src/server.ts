@@ -5,6 +5,7 @@ import { routers } from './routes/index.routes'
 import  './database/database'
 import  './routes/Admin/Articles/Article'
 import  './routes/Admin/Categories/Categorie'
+import  './routes/Admin/Users/Users'
 const app = express()
 
 app.set("view engine", 'ejs')
