@@ -5,8 +5,8 @@ import { router_root } from './Root/RootCrontroller.routes'
 import config_sessionRoutes from './middlewares/config_session.routes'
 const routers = express.Router()
 
+routers.use(config_sessionRoutes.config)
 routers.use('/', router_root)
 routers.use('/public' ,router_static_media)
 routers.use('/admin', router_admin)
-routers.use(config_sessionRoutes.config)
 export {routers}
