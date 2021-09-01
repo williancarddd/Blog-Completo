@@ -84,12 +84,6 @@ router_root.get('/articles/page/:num', async (req: Request, res:Response) => {
   }
 })
 
-router_root.get('/session', async (req:Request, res:Response) => {
-  //@ts-ignore
-  req.session.email = 'ddasd'
-  res.send('create')
-})
-router_root.get('/read', async (req:Request, res:Response) => {
-  res.json(req.session?.id)
-})
+
 export {router_root}
+//@ts-ignore

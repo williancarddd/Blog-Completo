@@ -6,6 +6,6 @@ export async  function encode_crypto_hash(password: string): Promise<string> {
   return hash
 }
 
-export function compare_passwords(pass_hash: string, pass_string: string) {
-
+export function compare_passwords(pass_hash: string, password: string) {
+  return bCrypt.compareSync(password, pass_hash)
 }
