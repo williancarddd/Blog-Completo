@@ -11,7 +11,9 @@ const app = express()
 app.set("view engine", 'ejs')
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
-app.use(morgan_configured)
+if(process.env.ENVIRONMENT === 'DEVELOPMENT'){
+  app.use(morgan_configured)
+}
 app.use(routers)
 
 app.listen(process.env.PORT || 3000, ():void => {

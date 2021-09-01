@@ -6,7 +6,8 @@ import {DateTime} from 'luxon';
 const connection:sequelize.Sequelize = new Sequelize(process.env.DATABASE || '',  process.env.USER || '', process.env.PASSWORD || '', {
   dialect: 'mysql',
   host:'localhost',
-  timezone: DateTime.now().toSQL().split(' ')[2]
+  timezone: DateTime.now().toSQL().split(' ')[2],
+  logging: process.env.ENVIRONMENT === 'PRODUCTION' ? false : true
 })
 
 
@@ -16,7 +17,7 @@ authenticate()
   console.log('😴 connected to database ' + process.env.DATABASE)
 })
 .catch(()=>{
-  console.log('🤷‍♂️ error to connect database ')
+  console.log('🤷‍♂️ error to connect database. ')
 })
 
 export {connection}
