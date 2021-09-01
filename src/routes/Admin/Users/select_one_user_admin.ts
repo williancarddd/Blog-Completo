@@ -1,7 +1,8 @@
+import { Model } from "sequelize/types";
 import { User } from "./Users";
 interface ISearchUser {
   err: boolean
-  data_user?: Object | null
+  data_user?: Model<any, any> | null
   name?: string 
 }
 export async function select_one_user(email: string): Promise<ISearchUser> {

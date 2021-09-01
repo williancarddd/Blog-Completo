@@ -2,13 +2,12 @@
  <%- include('../../partials/head.ejs') %> 
 <html lang="en">
   <body>
-  <%- include('../../partials/navbar_admin.ejs') %> 
   <main>
    <hr>
    <div class="container">
-    <form method="post" action="/admin/users/create">
+    <form method="post" action="/admin/users/authenticate">
       <div class='form-group'>
-        <h3 class='m-3 text-lg-center  fs-6'>Create new user</h3>
+        <h3 class='m-3 text-lg-center  fs-6'>Login Admin</h3>
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
@@ -21,7 +20,7 @@
       <div class="form-check">
   
       </div>
-      <button type="Create" class="btn btn-primary btn-block" >Create</button>
+      <button type="Create" class="btn btn-primary btn-block">Login in</button>
     </form>
    </div>
   </main>
