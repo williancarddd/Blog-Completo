@@ -2,3 +2,4 @@ PORT= <port listenning server>
 DATABASE= <>
 PASSWORD= <password db>
 USER= <user db>
+SECRET_SESSION=<key random for generate salt of the session-cookie>
