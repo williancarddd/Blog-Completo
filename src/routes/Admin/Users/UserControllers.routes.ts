@@ -24,14 +24,14 @@ router_user.get('/',admin_auth, async (req: Request, res:Response) => {
   }
 })
 
-router_user.get('/create', admin_auth, async(req: Request, res:Response) => {
+router_user.get('/create', async(req: Request, res:Response) => {
   const data: IData = {
     title_page: 'BlogTecnor-Create new user Admin'
   }
   return res.render('Admin/Users/users_create', data)
 })
 
-router_user.post('/create', admin_auth,async(req: Request, res:Response) => {
+router_user.post('/create',async(req: Request, res:Response) => {
   const email = req.body.email_admin.trim()
   const password = req.body.password_admin.trim()
   const result_search_email = await select_one_user(email)
