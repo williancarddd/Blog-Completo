@@ -25,5 +25,8 @@
    </div>
   </main>
   <%- include('../../partials/footer_scripts.ejs') %>
+  <script>
+    localStorage.setItem('roles_loged_user', JSON.stringify(JSON.stringify(roles_loged_user)));
+  </script>
 </body>
 </html>

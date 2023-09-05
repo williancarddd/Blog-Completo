@@ -1,5 +1,6 @@
 import { connection } from "../../../database/database";
 import sequelize  from 'sequelize';
+import { TypeRoles } from "../Type_roles/TypeRoles";
 
 export const User:sequelize.ModelCtor<sequelize.Model<any, any>> = connection.define("users", {
   email: {
@@ -12,4 +13,6 @@ export const User:sequelize.ModelCtor<sequelize.Model<any, any>> = connection.de
   }
 })
 
+
+TypeRoles.hasMany(User);
 User.sync({force: false})

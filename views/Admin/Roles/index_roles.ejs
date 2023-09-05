@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<%- include('../../partials/head.ejs') %>
+<html lang="en">
+<head>
+    <!-- Seus metadados e links de estilo vão aqui -->
+</head>
+<body>
+<%- include('../../partials/navbar_admin.ejs') %>
+<main>
+    <hr>
+    <div class="container">
+        <a href="/admin/typeroles/create"><button class='btn btn-secondary m-3'>Create new Role</button></a>
+        <h3 class='m-3 text-lg-center fs-6'>Roles List</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Role Name</th>
+                    <th>Delete User</th>
+                    <th>Update User</th>
+                    <th>Delete Article</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (const role of roles) { %>
+                    <tr>
+                        <td><%= role.name %></td>
+                        <td><%= role.roles.delete_user ? 'Yes' : 'No' %></td>
+                        <td><%= role.roles.update_user ? 'Yes' : 'No' %></td>
+                        <td><%= role.roles.delete_article ? 'Yes' : 'No' %></td>
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</main>
+<%- include('../../partials/footer_scripts.ejs') %>
+</body>
+</html>

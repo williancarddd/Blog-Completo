@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<%- include('../../partials/head.ejs') %>
+<html lang="en">
+<head>
+    <!-- Seus metadados e links de estilo vão aqui -->
+</head>
+<body>
+<%- include('../../partials/navbar_admin.ejs') %>
+<main>
+    <hr>
+    <div class="container">
+        
+        <form method="post" action="/admin/typeroles/create">
+            <div class="card" style="width: 18rem;">
+                <div class="card-header">
+                    <h3 class='m-3 text-lg-center fs-6'>Create new role</h3>
+                    <div class="form-group">
+                        <label for="role_name">Role Name</label>
+                        <input name='role_name' type="text" required>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><div class="form-group">
+                    <label for="delete_user">Delete User</label>
+                    <input name='delete_user' type="checkbox">
+                </div></li>
+                  <li class="list-group-item"> <div class="form-group">
+                    <label for="update_user">Update User</label>
+                    <input name='update_user' type="checkbox">
+                </div></li>
+                  <li class="list-group-item">
+                    <div class="form-group">
+                        <label for="delete_article">Delete Article</label>
+                        <input name="delete_article" type="checkbox">
+                    </div></li>
+                </ul>
+              </div>
+           
+            <button type="submit" class="btn btn-primary btn-block">Create Role</button>
+        </form>
+    </div>
+</main>
+<%- include('../../partials/footer_scripts.ejs') %>
+</body>
+</html>
